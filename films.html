@@ -18,58 +18,88 @@
     <title>UBB | The War Within</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="./index.html">Acasa</a>
+    <header class="Header">
+        <nav class="HeaderNav">
+            <ul class="NavList">
+                <li class="NavItem"><a href="./index.html" class="NavLink">Acasa</a></li>
+                <li class="NavItem NavItemFilms NavItemActive" tabindex="0">
+                    <span>Filme</span>
+                    <ul class="DropList">
+                        <li class="DropItem"><a href="./films.html#brett-varvel" class="DropLink">Brett Varvel</a></li>
+                        <li class="DropItem"><a href="./films.html#david-a-r-white" class="DropLink">David A. R. White</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
+                        <!-- <li>The war within</li>
+                        <li>Play the Flute</li>
+                        <li>War room</li>
+                        <li>God's not dead 1</li>
+                        <li>God's not dead 2</li>
+                        <li>God's not dead 3</li>
+                        <li>God's not dead 4</li>
+                        <li>A walk to remember</li>
+                        <li>Remember the goal</li> -->
+                    </ul>
                 </li>
-                <li>
-                    <span class="selected">Lista de filme</span>
-                </li>
-                <li>
-                    <a href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">Chestionar</a>
-                </li>
+                <li class="NavItem"><a href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" class="NavLink" target="_blank" rel="noopener noreferrer">Viata</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Lista de filme</h1>
-            <div class="Films">
-                <p class="Film">
-                    <div class="FilmImg">
-                        <img src="./assets/img/the-war-within.jpg" alt="todo give an alternative text">
+            <div class="Container">
+                <h1 id="title">Lista de filme</h1>
+                <div class="Films">
+                    <p class="Film">
+                        <div class="FilmImg">
+                            <img src="./assets/img/the-war-within.jpg" alt="todo give an alternative text">
+                        </div>
+                        <p class="FilmText"><cite>The war within</cite> este un film foarte frumos</p>
+                        <div>🕰️</div>
                     </div>
-                    <p class="FilmText"><cite>The war within</cite> este un film foarte frumos</p>
-                    <div>🕰️</div>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <h2>Ma gasesti si pe</h2>
-        <ul>
-            <li><a href="https://github.com/indavid04" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/david-irimia-b741b7204/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://www.frontendmentor.io/profile/INDavid04" target="_blank" rel="noopener noreferrer">Frontend Mentor</a></li>
-            <li><a href="https://www.youtube.com/@INDavid04" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-            <li><a href="https://x.com/INDavid04" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="https://www.instagram.com/davidirimia100/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        </ul>
-        <h2>Navigheaza prin site</h2>
-        <ul>
-            <li>
-                <a href="./index.html">Acasa</a>
-            </li>
-            <li>
-                <span class="selected">Lista de filme</span>
-            </li>
-            <li>
-                <a href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">Chestionar</a>
-            </li>
-        </ul>
-        <p>Copyright &copy; 2024 <a href="https://indavid04.github.io/portofolio/" target="_blank" rel="noopener noreferrer">INDavid04</a>, toate drepturile rezervate.</p>
+    <footer class="Footer">
+        <div class="Container">
+            <div class="FooterLinks">
+                <section class="FooterSocial">
+                    <h2 class="FooterTitle">Ma gasesti si pe</h2>
+                    <ul class="FooterList">
+                        <li class="FooterItem"><a class="FooterLink" href="https://github.com/indavid04" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://www.linkedin.com/in/david-irimia-b741b7204/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://www.frontendmentor.io/profile/INDavid04" target="_blank" rel="noopener noreferrer">Frontend Mentor</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://www.youtube.com/@INDavid04" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://x.com/INDavid04" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://www.instagram.com/davidirimia100/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
+                </section>
+                <section class="FooterMap">
+                    <h2 class="FooterTitle">Navigheaza prin site</h2>
+                    <ul class="FooterList">
+                        <li class="FooterItem">
+                            <a class="FooterLink" href="./index.html">Acasa</a>
+                        </li>
+                        <li class="FooterItem">
+                            <span class="selected">Lista de filme</span>
+                        </li>
+                        <li class="FooterItem">
+                            <a class="FooterLink" href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">Chestionar</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <p class="Copyright">Copyright &copy; 2024 <a class="FooterLink" href="https://indavid04.github.io/portofolio/" target="_blank" rel="noopener noreferrer">INDavid04</a>, toate drepturile rezervate.</p>
+        </div>
     </footer>
 </body>
 </html>

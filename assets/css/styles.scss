@@ -1,11 +1,1 @@
 :root { --primary: #3B1C32; --secondary: #A64D79; --dark: #1A1A1D; --light: #faebd7; --cta: #F4FF76; }
-
-body { background-color: var(--primary); color: var(--light); }
-
-nav {  }
-nav a { display: flex; text-decoration: none; color: var(--light); }
-
-.NavList { padding: 0; list-style-type: none; display: flex; justify-content: center; }
-  .NavItem { padding: 0.5rem 1.25rem; }
-  .DropMenu { display: none; }
-  .FilmsList:hover .DropMenu, .FilmsList:active .DropMenu, .FilmsList:focus .DropMenu { display: block; height: 10rem; overflow-y: scroll; overflow-x: hidden; padding: 0; list-style: none; max-width: 100%; }

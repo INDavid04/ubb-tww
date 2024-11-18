@@ -1,43 +1,47 @@
 :root {
   --primary: #3B1C32;
-  --secondary: #A64D79;
+  --secondary: #36031c;
   --dark: #1A1A1D;
   --light: #faebd7;
   --cta: #F4FF76;
 }
 
-body {
-  background-color: var(--primary);
-  color: var(--light);
-}
+body { margin: 0; padding: 0; background-color: var(--primary); color: var(--light); font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
 
-nav a {
-  display: flex;
-  text-decoration: none;
-  color: var(--light);
-}
+a { color: var(--cta); }
+a:hover, a:focus { text-decoration: none; }
 
-.NavList {
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-}
+.Container { padding: 0 1rem; }
 
-.NavItem {
-  padding: 0.5rem 1.25rem;
-}
+#title { font-size: 2.8rem; }
 
-.DropMenu {
-  display: none;
-}
+.Header { font-size: 1.5rem; background-color: var(--dark); color: var(--cta); }
+  .HeaderNav {  }
+    .NavList { display: flex; justify-content: center; align-items: stretch; margin: 0; padding: 0; list-style: none; }
+      .NavItem { display: flex; justify-content: center; align-items: center; border-bottom: 2px solid var(--cta); width: 5rem; height: 3rem; }
+        .NavItemActive { border-bottom-color: var(--light); color: var(--light); }
+        .NavItemFilms { position: relative; cursor: pointer; }
+          .NavItemFilms:hover .DropList, .NavItemFilms:active .DropList { display: flex; flex-direction: column; gap: 0.5rem; position: absolute; top: 3rem; padding: 0.5rem 0.25rem; height: 10rem; background-color: var(--secondary); overflow-x: hidden; overflow-y: scroll; font-size: 1rem; text-align: center; list-style-type: none; }
+        .NavLink { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; text-decoration: none; }
+          .Drop { display: none; }
+          .DropList { display: none; }
+            .DropItem {  }
+              .DropLink { color: var(--light); text-decoration: none; }
 
-.FilmsList:hover .DropMenu, .FilmsList:active .DropMenu, .FilmsList:focus .DropMenu {
-  display: block;
-  height: 10rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 0;
-  list-style: none;
-  max-width: 100%;
-}/*# sourceMappingURL=styles.css.map */
+.HeroSection { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #000000be; background-image: url("../img/the-war-within.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; background-blend-mode: multiply; }
+
+.Footer { background-color: var(--secondary); }
+  .FooterLinks {  }
+    .FooterSocial {  }
+      .FooterTitle {  }
+        .FooterList {  }
+          .FooterItem { padding: 0.5rem 0; }
+            .FooterLink {  }
+    .FooterMap {  }
+      .selected {  }
+  .Copyright { margin: 0; padding: 2.5rem 0; text-align: center; }
+
+
+@media (min-width: 600px) {
+  .FooterLinks { display: flex; gap: 2rem; justify-content: center; }
+}
