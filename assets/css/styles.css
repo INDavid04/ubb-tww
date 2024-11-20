@@ -6,42 +6,173 @@
   --cta: #F4FF76;
 }
 
-body { margin: 0; padding: 0; background-color: var(--primary); color: var(--light); font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
 
-a { color: var(--cta); }
-a:hover, a:focus { text-decoration: none; }
+a {
+  color: var(--cta);
+}
 
-.Container { padding: 0 1rem; }
+a:hover, a:focus {
+  text-decoration: none;
+}
 
-#title { font-size: 2.8rem; }
+.Container {
+  padding: 0 1rem;
+}
 
-.Header { font-size: 1.5rem; background-color: var(--dark); color: var(--cta); }
-  .HeaderNav {  }
-    .NavList { display: flex; justify-content: center; align-items: stretch; margin: 0; padding: 0; list-style: none; }
-      .NavItem { display: flex; justify-content: center; align-items: center; border-bottom: 2px solid var(--cta); width: 5rem; height: 3rem; }
-        .NavItemActive { border-bottom-color: var(--light); color: var(--light); }
-        .NavItemFilms { position: relative; cursor: pointer; }
-          .NavItemFilms:hover .DropList, .NavItemFilms:active .DropList { display: flex; flex-direction: column; gap: 0.5rem; position: absolute; top: 3rem; padding: 0.5rem 0.25rem; height: 10rem; background-color: var(--secondary); overflow-x: hidden; overflow-y: scroll; font-size: 1rem; text-align: center; list-style-type: none; }
-        .NavLink { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; text-decoration: none; }
-          .Drop { display: none; }
-          .DropList { display: none; }
-            .DropItem {  }
-              .DropLink { color: var(--light); text-decoration: none; }
+#title {
+  font-size: 2.8rem;
+}
 
-.HeroSection { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #000000be; background-image: url("../img/the-war-within.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; background-blend-mode: multiply; }
+.Header {
+  position: sticky;
+  top: 0;
+  font-size: 1.5rem;
+  background-color: var(--dark);
+  color: var(--cta);
+}
 
-.Footer { background-color: var(--secondary); }
-  .FooterLinks {  }
-    .FooterSocial {  }
-      .FooterTitle {  }
-        .FooterList {  }
-          .FooterItem { padding: 0.5rem 0; }
-            .FooterLink {  }
-    .FooterMap {  }
-      .selected {  }
-  .Copyright { margin: 0; padding: 2.5rem 0; text-align: center; }
+.NavList {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
+.NavItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--cta);
+  width: 5rem;
+  height: 3rem;
+}
+
+.NavItemActive {
+  border-bottom-color: var(--light);
+  color: var(--light);
+}
+
+.NavItemFilms {
+  position: relative;
+  cursor: pointer;
+}
+
+.NavItemFilms:hover .DropList, .NavItemFilms:active .DropList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  top: 3rem;
+  padding: 0.5rem 0.25rem;
+  height: 10rem;
+  background-color: var(--secondary);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-size: 1rem;
+  text-align: center;
+  list-style-type: none;
+}
+
+.NavLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.Drop {
+  display: none;
+}
+
+.DropList {
+  display: none;
+}
+
+.DropLink {
+  color: var(--light);
+  text-decoration: none;
+}
+
+.HeroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7450980392);
+  background-image: url("../img/the-war-within.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.Footer {
+  background-color: var(--secondary);
+}
 
 @media (min-width: 600px) {
-  .FooterLinks { display: flex; gap: 2rem; justify-content: center; }
+  .FooterLinks {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
 }
+
+.FooterItem {
+  padding: 0.5rem 0;
+}
+
+.Copyright {
+  margin: 0;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.Actor {
+  padding-top: 5rem;
+}
+
+.Films {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .Films {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .Films {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 2000px) {
+  .Films {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.Film cite {
+  background-color: var(--secondary);
+  padding: 0.1rem 0.8rem;
+}
+
+.FilmImg {
+  width: 100%;
+}
+
+.FilmImg img, .FilmText {
+  width: 80%;
+}/*# sourceMappingURL=styles.css.map */
