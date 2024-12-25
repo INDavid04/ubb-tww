@@ -53,8 +53,7 @@ a:hover, a:focus {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid var(--cta);
-  width: 5rem;
-  height: 3rem;
+  padding: 1rem;
 }
 
 .NavItemActive {
@@ -105,19 +104,6 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-.HeroSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7450980392);
-  background-image: url("../img/the-war-within.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
-}
-
 .Footer {
   background-color: var(--secondary);
 }
@@ -140,6 +126,19 @@ a:hover, a:focus {
   text-align: center;
 }
 
+.HeroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7450980392);
+  background-image: url("../img/the-war-within.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
 .Actor {
   padding-top: 5rem;
 }
@@ -147,20 +146,24 @@ a:hover, a:focus {
 .Films {
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 1rem;
 }
 @media (min-width: 900px) {
   .Films {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
   }
 }
 @media (min-width: 1200px) {
   .Films {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3rem;
   }
 }
 @media (min-width: 2000px) {
   .Films {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 4rem;
   }
 }
 
@@ -169,10 +172,15 @@ a:hover, a:focus {
   padding: 0.1rem 0.8rem;
 }
 
-.FilmImg {
+.FilmLink {
+  width: 20rem;
+  height: 11.25rem;
+}
+
+.FilmLink img {
   width: 100%;
 }
 
-.FilmImg img, .FilmText {
-  width: 80%;
+.FilmText {
+  line-height: 1.5;
 }/*# sourceMappingURL=styles.css.map */
