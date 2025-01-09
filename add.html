@@ -14,6 +14,7 @@
     <meta name="theme-color" content="#3e433d">
 
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <script defer type="text/javascript" src="./assets/js/index.js"></script>
     
     <title>UBB | The War Within</title>
 </head>
@@ -28,34 +29,41 @@
                         <li class="DropItem"><a href="./films.html#brett-varvel" class="DropLink">Brett Varvel</a></li>
                         <li class="DropItem"><a href="./films.html#david-a-r-white" class="DropLink">David A. R. White</a></li>
                         <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <li class="DropItem"><a href="./films.html#shane-west" class="DropLink">Shane West</a></li>
-                        <!-- <li>The war within</li>
-                        <li>Play the Flute</li>
-                        <li>War room</li>
-                        <li>God's not dead 1</li>
-                        <li>God's not dead 2</li>
-                        <li>God's not dead 3</li>
-                        <li>God's not dead 4</li>
-                        <li>A walk to remember</li>
-                        <li>Remember the goal</li> -->
                     </ul>
                 </li>
-                <li class="NavItem NavItemActive">Viata</li>
+                <li class="NavItem NavItemActive">Adauga</li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Viata</h1>
-        <p>Aici gasesti un link catre <a href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">un formular mai vechi cu un chestionar legat de satisfactia in viata de EE (Evanghelism Explosion)</a></p>
+    <main class="Add">
+        <h1 id="title">Adauga film</h1>
+        <form class="Container AddForm" target="_self" action="Added" method="post">
+            <fieldset>
+                <legend>Informatii</legend>
+                <div>
+                    <label for="nume-film">Nume </label>
+                    <input type="text" name="nume-film" id="nume-film" required minlength="3" maxlength="80" placeholder="e.g. The war within" required>
+                </div>
+                <div>
+                    <label for="descriere-film">Descriere</label>
+                    <textarea name="descriere-film" id="descriere-film" resize="none" rows="4" cols="20"></textarea>
+                </div>
+                <div>
+                    <label for="imagine-film">Imagine</label>
+                    <input type="file" name="imagine-film" id="imagine-film" accept="image/*">
+                </div>
+                <div>
+                    <label for="link-film">Link (optional)</label>
+                    <input type="url" name="link-film" id="link-film" placeholder="https://example.com">
+                </div>
+            </fieldset>
+            <input class="SendInfo" type="submit" value="Trimite informatiile!">
+        </form>
+        <article class="Container AddList">
+            <h2>Lista personalizata</h2>
+            <p>Aici poti adauga lista ta de filme la doar cateva click-uri distanta!</p>
+            <ul></ul>
+        </article>
     </main>
     <footer class="Footer">
         <div class="Container">
@@ -69,6 +77,7 @@
                         <li class="FooterItem"><a class="FooterLink" href="https://www.youtube.com/@INDavid04" target="_blank" rel="noopener noreferrer">YouTube</a></li>
                         <li class="FooterItem"><a class="FooterLink" href="https://x.com/INDavid04" target="_blank" rel="noopener noreferrer">Twitter</a></li>
                         <li class="FooterItem"><a class="FooterLink" href="https://www.instagram.com/davidirimia100/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li class="FooterItem"><a class="FooterLink" href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">Chestionar &nearr;</a></li>
                     </ul>
                 </section>
                 <section class="FooterMap">
@@ -78,11 +87,9 @@
                             <a class="FooterLink" href="./index.html">Acasa</a>
                         </li>
                         <li class="FooterItem">
-                            <span class="selected">Lista de filme</span>
+                            <a class="FooterLink" href="./films.html">Lista de filme</a>
                         </li>
-                        <li class="FooterItem">
-                            <a class="FooterLink" href="https://8jjvdb4sm05.typeform.com/to/rTu0izif" target="_blank" rel="noopener noreferrer">Chestionar</a>
-                        </li>
+                        <li class="FooterItem">Adauga film</li>
                     </ul>
                 </section>
             </div>

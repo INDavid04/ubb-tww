@@ -1,28 +1,31 @@
-:root { --primary: #3B1C32; --secondary: #36031c; --dark: #1A1A1D; --light: #faebd7; --cta: #F4FF76; }
+:root { --primary: #25001a; --secondary: #6A1E55; --dark: #12000d; --light: #FFF0DC; --cta: #F4CE9F; }
 
-body { margin: 0; padding: 0; background-color: var(--primary); color: var(--light); font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+body { margin: 0; padding: 0; background-color: var(--dark); color: var(--light); font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
 
-a { color: var(--cta); }
-a:hover, a:focus { text-decoration: none; }
+a { color: var(--text); }
+a:hover, a:focus { color: var(--cta); text-decoration: none; }
 
 .Container { padding: 0 1rem; }
 
 #title { font-size: 2.8rem; }
 
-.Header { position: sticky; top: 0; font-size: 1.5rem; background-color: var(--dark); color: var(--cta); }
+.Header { position: sticky; top: 0; font-size: 1.5rem; background-color: var(--primary); color: var(--cta); }
   .HeaderNav {  }
     .NavList { display: flex; justify-content: center; align-items: stretch; margin: 0; padding: 0; list-style: none; }
-      .NavItem { display: flex; justify-content: center; align-items: center; border-bottom: 2px solid var(--cta); padding: 1rem; }
-        .NavItemActive { border-bottom-color: var(--light); color: var(--light); }
+      .NavItem { display: flex; justify-content: center; align-items: center; border-bottom: 8px solid var(--primary); padding: 1rem; color: var(--light); }
+        .NavItem a { color: var(--light); }
+        .NavItem a:hover { color: var(--cta); }
+        .NavItemActive { border-bottom: 8px solid var(--light); color: var(--light); }
         .NavItemFilms { position: relative; cursor: pointer; }
-          .NavItemFilms:hover .DropList, .NavItemFilms:active .DropList { display: flex; flex-direction: column; gap: 0.5rem; position: absolute; top: 3rem; padding: 0.5rem 0.25rem; height: 10rem; background-color: var(--secondary); overflow-x: hidden; overflow-y: scroll; font-size: 1rem; text-align: center; list-style-type: none; }
+          .NavItemFilms:hover .DropList, .NavItemFilms:active .DropList { display: flex; flex-direction: column; gap: 1.5rem; position: absolute; top: 4.2rem; padding: 0.5rem; height: 8rem; background-color: var(--primary); overflow-x: hidden; overflow-y: scroll; font-size: 1rem; text-align: center; list-style-type: none; }
         .NavLink { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; text-decoration: none; }
           .Drop { display: none; }
           .DropList { display: none; }
             .DropItem {  }
               .DropLink { color: var(--light); text-decoration: none; }
+              .DropLink:hover { color: var(--cta); }
 
-.Footer { background-color: var(--secondary); }
+.Footer { background-color: var(--primary); }
   .FooterLinks { 
     @media (min-width: 600px) { display: flex; gap: 2rem; justify-content: center; }
   }
@@ -35,16 +38,35 @@ a:hover, a:focus { text-decoration: none; }
       .selected {  }
   .Copyright { margin: 0; padding: 2.5rem 0; text-align: center; }
 
-.HeroSection { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #000000be; background-image: url("../img/the-war-within.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; background-blend-mode: multiply; }
+.HeroSection { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #0c0008; background-image: url("../img/the-war-within.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center; background-blend-mode:overlay; 
+  @media (min-width: 900px) { font-size: 125%; }
+}
+  .HeroSection h1 { text-align: center; }
 
 .Actor { padding-top: 5rem; }
 
-.Films { display: grid; grid-template-columns: 1fr; grid-gap: 1rem;
-    @media (min-width: 900px) { grid-template-columns: 1fr 1fr; grid-gap: 2rem; }
-    @media (min-width: 1200px) { grid-template-columns: 1fr 1fr 1fr; grid-gap: 3rem; }
-    @media (min-width: 2000px) { grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 4rem; }
-}
-    .Film cite { background-color: var(--secondary); padding: 0.1rem 0.8rem; }
-    .FilmLink { width: 20rem; height: 11.25rem; }
-        .FilmLink img { width: 100%; }
-        .FilmText { line-height: 1.5; }
+.Films {  }
+  .Category h2 { text-align: center; }
+  .FilmsHero { margin-top: 5rem; text-align: center; }
+    .FilmsHero p { margin: auto; max-width: 55ch; line-height: 150%; }
+  .Films { display: grid; grid-template-columns: 1fr; grid-gap: 1rem;
+      @media (min-width: 900px) { grid-template-columns: 1fr 1fr; grid-gap: 2rem; }
+      @media (min-width: 1200px) { grid-template-columns: 1fr 1fr 1fr; grid-gap: 3rem; }
+      @media (min-width: 2000px) { grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 4rem; }
+  }
+      .Film cite { background-color: var(--primary); padding: 0.1rem 0.8rem; }
+      .FilmLink { width: 20rem; height: 11.25rem; }
+          .FilmLink img { width: 100%; }
+          .FilmText { line-height: 1.5; }
+
+.Add { margin-top: 4rem; }
+  .Add h1 { text-align: center; }
+  .AddForm { margin: 0 auto; max-width: 20rem;
+    @media (min-width: 900px) { font-size: 125%; }
+  }
+    .AddForm div { padding: 0.5rem 0; }
+    .AddForm label { display: block; padding: 0.5rem 0; width: 100%; }
+    .AddForm input, .AddForm textarea { display: block; width: 100%; resize: none; }
+  .SendInfo { margin-top: 1rem; height: 4rem; font-size: 100%; }
+    .SendInfo:hover, .SendInfo:focus { background-color: var(--cta); }
+  .AddList { margin: 4rem 0; text-align: center; }

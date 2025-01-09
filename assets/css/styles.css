@@ -1,25 +1,26 @@
 :root {
-  --primary: #3B1C32;
-  --secondary: #36031c;
-  --dark: #1A1A1D;
-  --light: #faebd7;
-  --cta: #F4FF76;
+  --primary: #25001a;
+  --secondary: #6A1E55;
+  --dark: #12000d;
+  --light: #FFF0DC;
+  --cta: #F4CE9F;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--primary);
+  background-color: var(--dark);
   color: var(--light);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 
 a {
-  color: var(--cta);
+  color: var(--text);
 }
 
 a:hover, a:focus {
+  color: var(--cta);
   text-decoration: none;
 }
 
@@ -35,7 +36,7 @@ a:hover, a:focus {
   position: sticky;
   top: 0;
   font-size: 1.5rem;
-  background-color: var(--dark);
+  background-color: var(--primary);
   color: var(--cta);
 }
 
@@ -52,12 +53,21 @@ a:hover, a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--cta);
+  border-bottom: 8px solid var(--primary);
   padding: 1rem;
+  color: var(--light);
+}
+
+.NavItem a {
+  color: var(--light);
+}
+
+.NavItem a:hover {
+  color: var(--cta);
 }
 
 .NavItemActive {
-  border-bottom-color: var(--light);
+  border-bottom: 8px solid var(--light);
   color: var(--light);
 }
 
@@ -69,12 +79,12 @@ a:hover, a:focus {
 .NavItemFilms:hover .DropList, .NavItemFilms:active .DropList {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
   position: absolute;
-  top: 3rem;
-  padding: 0.5rem 0.25rem;
-  height: 10rem;
-  background-color: var(--secondary);
+  top: 4.2rem;
+  padding: 0.5rem;
+  height: 8rem;
+  background-color: var(--primary);
   overflow-x: hidden;
   overflow-y: scroll;
   font-size: 1rem;
@@ -104,8 +114,12 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+.DropLink:hover {
+  color: var(--cta);
+}
+
 .Footer {
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 @media (min-width: 600px) {
@@ -131,16 +145,40 @@ a:hover, a:focus {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7450980392);
+  background-color: #0c0008;
   background-image: url("../img/the-war-within.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-blend-mode: multiply;
+  background-blend-mode: overlay;
+}
+@media (min-width: 900px) {
+  .HeroSection {
+    font-size: 125%;
+  }
+}
+
+.HeroSection h1 {
+  text-align: center;
 }
 
 .Actor {
   padding-top: 5rem;
+}
+
+.Category h2 {
+  text-align: center;
+}
+
+.FilmsHero {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.FilmsHero p {
+  margin: auto;
+  max-width: 55ch;
+  line-height: 150%;
 }
 
 .Films {
@@ -168,7 +206,7 @@ a:hover, a:focus {
 }
 
 .Film cite {
-  background-color: var(--secondary);
+  background-color: var(--primary);
   padding: 0.1rem 0.8rem;
 }
 
@@ -183,4 +221,53 @@ a:hover, a:focus {
 
 .FilmText {
   line-height: 1.5;
+}
+
+.Add {
+  margin-top: 4rem;
+}
+
+.Add h1 {
+  text-align: center;
+}
+
+.AddForm {
+  margin: 0 auto;
+  max-width: 20rem;
+}
+@media (min-width: 900px) {
+  .AddForm {
+    font-size: 125%;
+  }
+}
+
+.AddForm div {
+  padding: 0.5rem 0;
+}
+
+.AddForm label {
+  display: block;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.AddForm input, .AddForm textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+}
+
+.SendInfo {
+  margin-top: 1rem;
+  height: 4rem;
+  font-size: 100%;
+}
+
+.SendInfo:hover, .SendInfo:focus {
+  background-color: var(--cta);
+}
+
+.AddList {
+  margin: 4rem 0;
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
