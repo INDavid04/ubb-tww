@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/f/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/f/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/f/favicon-16x16.png">
-    <link rel="manifest" href="./assets/img/f/site.webmanifest">
+    <!-- <link rel="manifest" href="./assets/img/f/site.webmanifest"> -->
     <link rel="mask-icon" href="./assets/img/f/safari-pinned-tab.svg" color="#3e433d">
     <meta name="msapplication-TileColor" content="#3e433d">
     <meta name="theme-color" content="#3e433d">
@@ -37,20 +37,16 @@
     </header>
     <main class="Add">
         <h1 id="title">Adauga film</h1>
-        <form class="Container AddForm" target="_self" action="Added" method="post">
+        <form class="Container AddForm" target="_self" method="get">
             <fieldset>
                 <legend>Informatii</legend>
                 <div>
                     <label for="nume-film">Nume </label>
-                    <input type="text" name="nume-film" id="nume-film" required minlength="3" maxlength="80" placeholder="e.g. The war within" required>
+                    <input type="text" name="nume-film" id="nume-film" minlength="3" maxlength="80" placeholder="e.g. The war within">
                 </div>
                 <div>
                     <label for="descriere-film">Descriere</label>
                     <textarea name="descriere-film" id="descriere-film" resize="none" rows="4" cols="20"></textarea>
-                </div>
-                <div>
-                    <label for="imagine-film">Imagine</label>
-                    <input type="file" name="imagine-film" id="imagine-film" accept="image/*">
                 </div>
                 <div>
                     <label for="link-film">Link (optional)</label>
@@ -62,7 +58,6 @@
         <article class="Container AddList">
             <h2>Lista personalizata</h2>
             <p>Aici poti adauga lista ta de filme la doar cateva click-uri distanta!</p>
-            <ul></ul>
         </article>
     </main>
     <footer class="Footer">

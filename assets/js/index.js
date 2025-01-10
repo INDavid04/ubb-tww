@@ -1,76 +1,109 @@
-// Așteptăm încărcarea completă a paginii
-document.addEventListener("DOMContentLoaded", () => {
-    // Selectăm formularul și lista unde vor fi afișate rezultatele
-    const form = document.querySelector(".AddForm");
-    const addList = document.querySelector(".AddList ul"); // Creăm un <ul> în HTML pentru lista de elemente
+function afiseazaDatele(event) {
+    event.preventDefault(); // Previne trimiterea formularului și reîncărcarea paginii.
 
-    // Prevenim trimiterea formularului și tratăm datele
-    form.addEventListener("submit", (event) => {
-        event.preventDefault(); // Previne reîncărcarea paginii
+    // Salvăm titlul și descrierea în variabile.
+    const title = document.getElementById("nume-film").value.trim();
+    const description = document.getElementById("descriere-film").value.trim();
 
-        // Preluăm valorile din formular
-        const title = document.getElementById("nume-film").value;
-        const description = document.getElementById("descriere-film").value;
-        const imageInput = document.getElementById("imagine-film");
-        const link = document.getElementById("link-film").value;
+    if (!title || !description) {
+        alert("Te rog să completezi toate câmpurile!");
+        return;
+    }
 
-        // Verificăm dacă titlul este completat
-        if (!title) {
-            alert("Te rog să introduci un titlu pentru film.");
-            return;
-        }
+    // Adăugăm noul film în local storage.
+    const films = JSON.parse(localStorage.getItem("films")) || [];
+    films.push({ title, description });
+    localStorage.setItem("films", JSON.stringify(films));
 
-        // Creăm un element de listă (<li>) pentru itemul adăugat
-        const listItem = document.createElement("li");
-        listItem.style.border = "1px solid #ddd";
-        listItem.style.padding = "10px";
-        listItem.style.marginBottom = "10px";
+    // Actualizăm lista afișată.
+    adaugaFilmPeEcran(title, description);
 
-        // Adăugăm titlul
-        const newTitle = document.createElement("h3");
-        newTitle.textContent = title;
-        listItem.appendChild(newTitle);
+    // Resetăm formularul pentru a permite adăugarea unui nou element.
+    event.target.reset();
+}
 
-        // Adăugăm descrierea
-        if (description) {
-            const newDescription = document.createElement("p");
-            newDescription.textContent = description;
-            listItem.appendChild(newDescription);
-        }
+function adaugaFilmPeEcran(title, description) {
+    // Selectăm lista ordonată (ol) unde vom adăuga elementele.
+    const ol = document.querySelector(".AddList ol");
 
-        // Citim fișierul selectat din input-ul de tip "file" și îl afișăm ca imagine
-        if (imageInput.files.length > 0) {
-            const file = imageInput.files[0];
-            const reader = new FileReader();
+    // Creăm elementele necesare.
+    const li = document.createElement("li");
+    const h3 = document.createElement("h3");
+    const p = document.createElement("p");
+    const a = document.createElement("a");
+    const svg = document.createElement("svg");
+    const div = document.createElement("div");
 
-            reader.onload = function (event) {
-                const newImage = document.createElement("img");
-                newImage.src = event.target.result; // Atribuim conținutul fișierului citit
-                newImage.alt = title;
-                newImage.style.maxWidth = "300px"; // Stilizare opțională
-                newImage.style.display = "block";
-                newImage.style.marginTop = "10px";
-                listItem.appendChild(newImage); // Adăugăm imaginea în itemul listei
-            };
+    // Adăugăm titlul și descrierea.
+    h3.textContent = title;
+    p.textContent = description;
 
-            reader.readAsDataURL(file); // Citim fișierul selectat
-        }
+    // Setăm atributele SVG și adăugăm conținutul din localStorage.
+    svg.setAttribute("width", "100");
+    svg.setAttribute("height", "100");
+    svg.setAttribute("viewBox", "0 0 100 100");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svg.innerHTML = localStorage.getItem("svg");
 
-        // Adăugăm link-ul (dacă este completat)
-        if (link) {
-            const newLink = document.createElement("a");
-            newLink.href = link;
-            newLink.textContent = "Link către film";
-            newLink.target = "_blank";
-            newLink.style.display = "block";
-            newLink.style.marginTop = "10px";
-            listItem.appendChild(newLink);
-        }
+    // Setăm atributele ancorei și adăugăm conținutul `Vezi filmul!`.
+    a.setAttribute("href", "#");
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener noreferrer");
+    div.innerHTML = "Vezi filmul!";
 
-        // Adăugăm itemul creat în lista AddList
-        addList.appendChild(listItem);
+    // Construim structura elementelor.
+    a.appendChild(svg);
+    a.appendChild(div);
+    li.appendChild(h3);
+    li.appendChild(p);
+    li.appendChild(a);
+    ol.appendChild(li);
+}
 
-        // Resetăm formularul
-        form.reset();
+window.onload = function () {
+    // Salvăm SVG-ul în localStorage dacă nu există deja.
+    if (!localStorage.getItem("svg")) {
+        const svgElements = [
+            { tag: "circle", attributes: { cx: "50", cy: "50", r: "40", fill: "#6A1E55" } },
+            { tag: "rect", attributes: { x: "50", y: "86", width: "50", height: "4", fill: "#6A1E55" } },
+            { tag: "circle", attributes: { cx: "31.6152", cy: "31.6152", r: "8", transform: "rotate(-45 31.6152 31.6152)", fill: "#25001A" } },
+            { tag: "circle", attributes: { cx: "68.3848", cy: "68.3848", r: "8", transform: "rotate(-45 68.3848 68.3848)", fill: "#25001A" } },
+            { tag: "circle", attributes: { cx: "68.3848", cy: "31.6152", r: "8", transform: "rotate(-45 68.3848 31.6152)", fill: "#25001A" } },
+            { tag: "circle", attributes: { cx: "31.6152", cy: "68.3848", r: "8", transform: "rotate(-45 31.6152 68.3848)", fill: "#25001A" } },
+            { tag: "circle", attributes: { cx: "50", cy: "50", r: "8", fill: "#25001A" } },
+        ];
+    
+        const svgNamespace = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNamespace, "svg");
+        svg.setAttribute("width", "100");
+        svg.setAttribute("height", "100");
+        svg.setAttribute("viewBox", "0 0 100 100");
+        svg.setAttribute("fill", "none");
+    
+        svgElements.forEach(({ tag, attributes }) => {
+            const element = document.createElementNS(svgNamespace, tag);
+            Object.entries(attributes).forEach(([key, value]) => {
+                element.setAttribute(key, value);
+            });
+            svg.appendChild(element);
+        });
+    
+        // Salvăm SVG-ul complet construit ca string.
+        localStorage.setItem("svg", svg.outerHTML);
+    }
+
+    // Creăm lista ordonată dacă nu există.
+    const addList = document.querySelector(".AddList");
+    const ol = document.createElement("ol");
+    addList.appendChild(ol);
+
+    // Reafișăm elementele salvate în localStorage.
+    const films = JSON.parse(localStorage.getItem("films")) || [];
+    films.forEach(({ title, description }) => {
+        adaugaFilmPeEcran(title, description);
     });
-});
+
+    // Adăugăm evenimentul de trimitere a formularului.
+    document.querySelector(".AddForm").addEventListener("submit", afiseazaDatele);
+};
