@@ -1,7 +1,6 @@
-function afiseazaDatele(event) {
-    // Salvăm titlul, descrierea și link-ul în variabile.
+function trimiteInformatiile(event) {
     const title = document.getElementById("nume-film").value.trim();
-    const description = document.getElementById("descriere-film").value.trim();
+    const description = document.getElementsByTagName("textarea")[0].value.trim();
     const link = document.getElementById("link-film").value.trim() || "https://example.com";
 
     if (!title || !description) {
@@ -9,23 +8,20 @@ function afiseazaDatele(event) {
         return;
     }
 
-    // Adăugăm noul film în local storage.
+    // Adaugam filmul in local storage
     const films = JSON.parse(localStorage.getItem("films")) || [];
-    films.push({ title, description, link });
+    films.push({ title, description, link }); // desi films e constanta, putem adauga setul in lista pentru ca nu modificam adresa acesteia
     localStorage.setItem("films", JSON.stringify(films));
 
-    // Actualizăm lista afișată.
-    adaugaFilmPeEcran(title, description, link);
+    afiseazaFilm(title, description, link);
 
-    // Resetăm formularul pentru a permite adăugarea unui nou element.
+    // Resetam formularul
     event.target.reset();
 }
 
-function adaugaFilmPeEcran(title, description, link) {
-    // Selectăm lista ordonată (ol) unde vom adăuga elementele.
+function afiseazaFilm(title, description, link) {
     const ol = document.querySelector(".AddList ol");
 
-    // Creăm elementele necesare.
     const li = document.createElement("li");
     const h3 = document.createElement("h3");
     const p = document.createElement("p");
@@ -33,24 +29,11 @@ function adaugaFilmPeEcran(title, description, link) {
     const svgContainer = document.createElement("div");
     const div = document.createElement("div");
 
-    // Inglobam filmul intr-un chenar
-    ol.style.padding = "0";
-    ol.style.display = "flex";
-    ol.style.flexWrap = "wrap";
-    ol.style.justifyContent = "center";
-    ol.style.alignItems = "flex-start";
-    ol.style.gap = "1rem";
-    li.style.width = "18rem";
-    li.style.height = "24rem";
-    li.style.border = "1px solid #6A1E55";
-    li.style.listStyle = "none";
-    li.style.padding =  "1rem";
-
-    // Adăugăm titlul și descrierea.
+    // Adaugam titlul și descrierea.
     h3.textContent = title;
     p.textContent = description;
 
-    // Setăm atributele ancorei și adăugăm conținutul `Vezi filmul!`.
+    // Adaugam link-ul `Vezi filmul!`.
     a.setAttribute("href", link);
     a.setAttribute("target", "_blank");
     a.setAttribute("rel", "noopener noreferrer");
@@ -64,10 +47,28 @@ function adaugaFilmPeEcran(title, description, link) {
     li.appendChild(p);
     li.appendChild(a);
     ol.appendChild(li);
+
+    // Styling
+    ol.style.padding = "0";
+    ol.style.display = "flex";
+    ol.style.flexWrap = "wrap";
+    ol.style.justifyContent = "center";
+    ol.style.alignItems = "flex-start";
+    ol.style.gap = "1rem";
+
+    li.style.display = "flex";
+    li.style.flexDirection = "column";
+    li.style.width = "18rem";
+    li.style.height = "24rem";
+    li.style.border = "1px solid #6A1E55";
+    li.style.listStyle = "none";
+    li.style.padding =  "2rem 1rem";
+
+    a.style.marginTop = "auto";
 }
 
 window.onload = function () {
-    // Salvăm SVG-ul în localStorage dacă nu există deja.
+    // Salvam SVG in local storage
     if (!localStorage.getItem("svg")) {
         const svgElements = [
             { tag: "circle", attributes: { cx: "50", cy: "50", r: "40", fill: "#6A1E55" } },
@@ -78,14 +79,12 @@ window.onload = function () {
             { tag: "circle", attributes: { cx: "31.6152", cy: "68.3848", r: "8", transform: "rotate(-45 31.6152 68.3848)", fill: "#25001A" } },
             { tag: "circle", attributes: { cx: "50", cy: "50", r: "8", fill: "#25001A" } },
         ];
-    
         const svgNamespace = "http://www.w3.org/2000/svg";
         const svg = document.createElementNS(svgNamespace, "svg");
         svg.setAttribute("width", "100");
         svg.setAttribute("height", "100");
         svg.setAttribute("viewBox", "0 0 100 100");
         svg.setAttribute("fill", "none");
-    
         svgElements.forEach(({ tag, attributes }) => {
             const element = document.createElementNS(svgNamespace, tag);
             Object.entries(attributes).forEach(([key, value]) => {
@@ -93,22 +92,19 @@ window.onload = function () {
             });
             svg.appendChild(element);
         });
-    
-        // Salvăm SVG-ul complet construit ca string.
         localStorage.setItem("svg", svg.outerHTML);
     }
 
-    // Creăm lista ordonată dacă nu există.
-    const addList = document.querySelector(".AddList");
+    // Adaugam ol in .AddList
+    const addList = document.getElementsByClassName("AddList")[0];
     const ol = document.createElement("ol");
     addList.appendChild(ol);
 
-    // Reafișăm elementele salvate în localStorage.
+    // Reafisam filmele
     const films = JSON.parse(localStorage.getItem("films")) || [];
     films.forEach(({ title, description, link }) => {
-        adaugaFilmPeEcran(title, description, link);
+        afiseazaFilm(title, description, link);
     });
 
-    // Adăugăm evenimentul de trimitere a formularului.
-    document.querySelector(".AddForm").addEventListener("submit", afiseazaDatele);
+    document.querySelector(".AddForm").addEventListener("submit", trimiteInformatiile);
 };
