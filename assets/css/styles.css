@@ -257,18 +257,29 @@ a:hover, a:focus {
   resize: none;
 }
 
-.SendInfo {
+.SendInfo, .ShowFilms {
   margin-top: 1rem;
   height: 4rem;
   font-size: 100%;
   cursor: pointer;
 }
 
-.SendInfo:hover, .SendInfo:focus {
+.SendInfo:hover, .SendInfo:focus, .ShowFilms:hover, .ShowFilms:focus {
   background-color: var(--cta);
 }
 
 .AddList {
   margin: 4rem 0;
   text-align: center;
+}
+
+.RandomFilms {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.RandomFilms p {
+  max-width: 55ch;
+  margin: auto;
+  line-height: 1.5;
 }/*# sourceMappingURL=styles.css.map */
